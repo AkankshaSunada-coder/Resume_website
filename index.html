@@ -381,28 +381,30 @@ footer {
 /* PRINT */
 
 @media print {
-    header, footer, .no-print {
-        display: none !important;
-    }
 
     body {
-        background: white;
+        background: white !important;
+        color: black !important;
     }
 
     .page {
         display: none !important;
     }
 
-    .page.printing {
+    .page.active {
         display: block !important;
-        padding: 10px;
+        position: static !important;
+        visibility: visible !important;
     }
 
-    .resume-container,
-    .biodata-container {
-        box-shadow: none;
-        max-width: 100%;
+    .page.active * {
+        visibility: visible !important;
     }
+
+    nav, footer, button {
+        display: none !important;
+    }
+
 }
 
 </style>
