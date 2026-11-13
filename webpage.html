@@ -1,0 +1,977 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akanksha | Resume and Bio-Data</title>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+
+/* GENERAL STYLING */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    color: #173b70;
+}
+
+/* NAVIGATION */
+
+header {
+    background: #173b70;
+    padding: 15px 6%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #ffd166;
+}
+
+.menu-btn {
+    display: none;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* PAGE SECTIONS */
+
+.page {
+    display: none;
+    min-height: 75vh;
+    padding: 50px 8%;
+}
+
+.page.active {
+    display: block;
+}
+
+/* HOME */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 430px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.hero h1 span {
+    color: #2675c9;
+}
+
+.hero-image img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid white;
+}
+
+.welcome {
+    color: #2675c9;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    margin: 15px 0;
+}
+
+.btn {
+    display: inline-block;
+    background: #173b70;
+    color: white;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 10px 5px 10px 0;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #2675c9;
+    transform: translateY(-3px);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* CARDS */
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px #0001;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card h3 {
+    margin-bottom: 12px;
+}
+
+.card a {
+    color: #2675c9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* RESUME */
+
+.resume-container,
+.biodata-container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px #0001;
+}
+
+.resume-header {
+    text-align: center;
+    border-bottom: 2px solid #173b70;
+    padding-bottom: 20px;
+}
+
+.resume-section {
+    margin-top: 25px;
+}
+
+.resume-section h2 {
+    border-bottom: 2px solid #2675c9;
+    padding-bottom: 7px;
+    margin-bottom: 12px;
+}
+
+.resume-section ul {
+    padding-left: 25px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0 !important;
+}
+
+.skill-list li {
+    background: #e4efff;
+    color: #173b70;
+    padding: 7px 16px;
+    border-radius: 20px;
+}
+
+/* TABLE */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: #173b70;
+    color: white;
+}
+
+/* BIO-DATA */
+
+.profile-center {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-center img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #173b70;
+}
+
+/* PROJECTS */
+
+.project-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.project-card span {
+    color: #2675c9;
+    font-weight: bold;
+}
+
+/* CONTACT */
+
+.contact-container {
+    max-width: 600px;
+    background: white;
+    padding: 30px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px #0001;
+}
+
+.contact-container label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    outline: none;
+    border-color: #2675c9;
+}
+
+#formMessage {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+
+footer {
+    background: #173b70;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 30px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media(max-width: 768px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-container,
+    .biodata-container,
+    .contact-container {
+        padding: 18px;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}
+
+/* PRINT */
+
+@media print {
+    header, footer, .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+
+    .page {
+        display: none !important;
+    }
+
+    .page.printing {
+        display: block !important;
+        padding: 10px;
+    }
+
+    .resume-container,
+    .biodata-container {
+        box-shadow: none;
+        max-width: 100%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+
+<header>
+<nav class="navbar">
+
+<h2 class="logo">MyPortfolio</h2>
+
+<ul class="nav-links">
+    <li><a class="active" onclick="showPage('home',this)">Home</a></li>
+    <li><a onclick="showPage('resume',this)">Resume</a></li>
+    <li><a onclick="showPage('biodata',this)">Bio-Data</a></li>
+    <li><a onclick="showPage('projects',this)">Projects</a></li>
+    <li><a onclick="showPage('contact',this)">Contact</a></li>
+</ul>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+</nav>
+</header>
+
+
+<!-- HOME PAGE -->
+
+<section id="home" class="page active">
+
+<div class="hero">
+
+<div class="hero-content">
+
+<p class="welcome">WELCOME TO MY WEBSITE</p>
+
+<h1>Hello, I'm <span>Akanksha</span></h1>
+
+<h3>Computer Science Engineering Student</h3>
+
+<p>
+I am a passionate Computer Science Engineering student
+interested in programming, web development and technology.
+I enjoy learning new skills and creating innovative projects.
+</p>
+
+<button class="btn" onclick="showPage('resume')">
+View Resume
+</button>
+
+<button class="btn" onclick="showPage('contact')">
+Contact Me
+</button>
+
+</div>
+
+<div class="hero-image">
+<img src="resume pic.jpeg" alt="Profile Photo">
+</div>
+
+</div>
+
+<div class="section-title">
+<h2>About Me</h2>
+<p>
+I am interested in software development, problem solving
+and exploring modern technologies. My goal is to become
+a successful software developer.
+</p>
+</div>
+
+<h2 class="section-title">Explore My Profile</h2>
+
+<div class="card-container">
+
+<div class="card">
+<h3>My Resume</h3>
+<p>View my educational qualifications and skills.</p>
+<a onclick="showPage('resume')">Read More →</a>
+</div>
+
+<div class="card">
+<h3>My Bio-Data</h3>
+<p>Know more about my personal information.</p>
+<a onclick="showPage('biodata')">Read More →</a>
+</div>
+
+<div class="card">
+<h3>My Projects</h3>
+<p>Explore my programming projects.</p>
+<a onclick="showPage('projects')">Read More →</a>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RESUME PAGE -->
+
+<section id="resume" class="page">
+
+<div class="resume-container">
+
+<div class="resume-header">
+
+<h1>AKANKSHA</h1>
+<h3>Computer Science Engineering Student</h3>
+
+<p>Email: akankshasunadha@gmail.com</p>
+<p>Phone: +91 9591811814</p>
+<p>Location: Karnataka, India</p>
+
+</div>
+
+<div class="resume-section">
+
+<h2>Career Objective</h2>
+
+<p>
+To obtain an opportunity where I can apply my technical
+knowledge, improve my programming skills and contribute
+to innovative projects while developing professionally.
+</p>
+
+</div>
+
+<div class="resume-section">
+
+<h2>Educational Qualifications</h2>
+
+<table>
+
+<tr>
+<th>Qualification</th>
+<th>Institution</th>
+<th>Year</th>
+<th>Percentage</th>
+</tr>
+
+<tr>
+<td>B.E. Computer Science</td>
+<td>Vivekananda Institute of Engineering and Technology</td>
+<td>2024-2028</td>
+<td>85%</td>
+</tr>
+
+<tr>
+<td>PUC</td>
+<td>Narendra Pre University College</td>
+<td>2024</td>
+<td>94%</td>
+</tr>
+
+<tr>
+<td>SSLC</td>
+<td>Vivekananda kannnada Medium School</td>
+<td>2022</td>
+<td>98%</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="resume-section">
+
+<h2>Technical Skills</h2>
+
+<ul class="skill-list">
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>Python</li>
+<li>C Programming</li>
+<li>C++</li>
+<li>SQL</li>
+</ul>
+
+</div>
+
+<div class="resume-section">
+
+<h2>Projects</h2>
+
+<h3>Tic-Tac-Toe Game</h3>
+
+<p>
+Developed a graphical Tic-Tac-Toe game using Python
+and Tkinter with computer mode, scoreboard and
+winning-square highlighting.
+</p>
+
+<h3>Resume Builder Website</h3>
+
+<p>
+Developed a website interface to help users create
+and manage professional resumes.
+</p>
+
+<h3>To-Do List</h3>
+
+<p>
+A task management application that allows users
+to add and manage their daily tasks.
+</p>
+
+</div>
+
+<div class="resume-section">
+
+<h2>Personal Strengths</h2>
+
+<ul>
+<li>Quick learner</li>
+<li>Problem-solving skills</li>
+<li>Teamwork</li>
+<li>Time management</li>
+</ul>
+
+</div>
+
+<div class="resume-section">
+
+
+
+</div>
+
+<div class="no-print">
+<button class="btn" onclick="printPage('resume')">
+Download Resume / Save as PDF
+</button>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BIO-DATA PAGE -->
+
+<section id="biodata" class="page">
+
+<div class="biodata-container">
+
+<h1 class="section-title">MY BIO-DATA</h1>
+
+<div class="profile-center">
+
+<img src="resume pic.jpeg" alt="Profile Photo">
+
+<h2>Akanksha</h2>
+
+<p>Computer Science Engineering Student</p>
+
+</div>
+
+<table>
+
+<tr>
+<th>Full Name</th>
+<td>Akanksha</td>
+</tr>
+
+<tr>
+<th>Date of Birth</th>
+<td>24/05/2006</td>
+</tr>
+
+<tr>
+<th>Gender</th>
+<td>Female</td>
+</tr>
+
+<tr>
+<th>Nationality</th>
+<td>Indian</td>
+</tr>
+
+<tr>
+<th>Languages Known</th>
+<td>English, Kannada, Hindi</td>
+</tr>
+
+<tr>
+<th>Address</th>
+<td>Sunada house,Vijayananagra Layout,Bannur Post,Padeel,Puttur,DK,Karnataka</td>
+</tr>
+
+<tr>
+<th>Email</th>
+<td>akankshasunadha@gmail.com</td>
+</tr>
+
+<tr>
+<th>Phone Number</th>
+<td>+91 9591811814</td>
+</tr>
+
+<tr>
+<th>Hobbies</th>
+<td>Reading, Coding, Music</td>
+</tr>
+
+<tr>
+<th>Education</th>
+<td>B.E. Computer Science Engineering</td>
+</tr>
+
+</table>
+
+<div class="no-print">
+<button class="btn" onclick="printPage('biodata')">
+Print Bio-Data
+</button>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS PAGE -->
+
+<section id="projects" class="page">
+
+<h1 class="section-title">MY PROJECTS</h1>
+
+<p class="section-title">
+Some of my academic and personal projects
+</p>
+
+<div class="card-container">
+
+<div class="card">
+
+<div class="project-icon">🎮</div>
+
+<h3>Tic-Tac-Toe Game</h3>
+
+<p>
+A Python-based graphical game developed using Tkinter
+with player-versus-computer mode and scoreboard.
+</p>
+
+<span>Python | Tkinter</span>
+
+</div>
+
+<div class="card">
+
+<div class="project-icon">🌐</div>
+
+<h3>Resume Builder</h3>
+
+<p>
+A website interface designed to help users create
+and manage professional resumes.
+</p>
+
+<span>HTML | CSS | JavaScript</span>
+
+</div>
+
+<div class="card">
+
+<div class="project-icon">📝</div>
+
+<h3>To-Do List</h3>
+
+<p>
+A task management application that allows users
+to add and manage their daily tasks.
+</p>
+
+<span>HTML | CSS | JavaScript</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT PAGE -->
+
+<section id="contact" class="page">
+
+<div class="contact-container">
+
+<h1 class="section-title">CONTACT ME</h1>
+
+<p class="section-title">
+Feel free to contact me using the form below.
+</p>
+
+<form id="contactForm">
+
+<label for="name">Full Name</label>
+
+<input type="text" id="name"
+placeholder="Enter your name" required>
+
+<label for="email">Email Address</label>
+
+<input type="email" id="email"
+placeholder="Enter your email" required>
+
+<label for="subject">Subject</label>
+
+<input type="text" id="subject"
+placeholder="Enter subject" required>
+
+<label for="message">Message</label>
+
+<textarea id="message" rows="5"
+placeholder="Write your message" required></textarea>
+
+<button type="submit" class="btn">
+Send Message
+</button>
+
+<p id="formMessage"></p>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="no-print">
+<p>© 2026 Akanksha | Personal Resume and Bio-Data Website</p>
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// SHOW DIFFERENT PAGES
+
+function showPage(pageId, clickedLink) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.classList.remove("active");
+    });
+
+    if (clickedLink) {
+        clickedLink.classList.add("active");
+    } else {
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            if (link.textContent.trim().toLowerCase() === pageId) {
+                link.classList.add("active");
+            }
+        });
+    }
+
+    document.querySelector(".nav-links").classList.remove("show");
+
+    window.scrollTo(0, 0);
+}
+
+
+// MOBILE MENU
+
+function toggleMenu() {
+
+    document.querySelector(".nav-links")
+        .classList.toggle("show");
+
+}
+
+
+// PRINT RESUME OR BIO-DATA
+
+function printPage(pageId) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("printing");
+    });
+
+    document.getElementById(pageId).classList.add("printing");
+
+    window.print();
+
+    document.getElementById(pageId).classList.remove("printing");
+
+}
+
+
+// CONTACT FORM VALIDATION
+
+document.getElementById("contactForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+
+    const email = document.getElementById("email").value.trim();
+
+    const subject = document.getElementById("subject").value.trim();
+
+    const message = document.getElementById("message").value.trim();
+
+    const formMessage = document.getElementById("formMessage");
+
+    if (!name || !email || !subject || !message) {
+
+        formMessage.style.color = "red";
+
+        formMessage.textContent = "Please fill all fields.";
+
+        return;
+
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+
+        formMessage.style.color = "red";
+
+        formMessage.textContent = "Enter a valid email address.";
+
+        return;
+
+    }
+
+    formMessage.style.color = "green";
+
+    formMessage.textContent =
+        "Thank you, " + name + "! Your form is valid.";
+
+    this.reset();
+
+});
+
+
+// JQUERY ANIMATIONS
+
+$(document).ready(function() {
+
+    $(".card").hover(
+
+        function() {
+            $(this).css("background-color", "#e4efff");
+        },
+
+        function() {
+            $(this).css("background-color", "white");
+        }
+
+    );
+
+});
+
+</script>
+
+</body>
+</html>
